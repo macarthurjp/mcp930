@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <title>Mujeres con Propósito</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body id="top">
+
+  <!-- LOADER -->
+  <div id="loadingOverlay" style="display:none;">
+    <div class="spinner"></div>
+    <p>Procesando tu registro...</p>
+  </div>
+
+  <!-- OVERLAY MENÚ -->
+  <div id="menu-overlay"></div>
+
+  <header style="max-width: 1180px; width: calc(100% - 60px); margin: 10px auto 0; height: 88px; min-height: 88px; overflow: visible;">
+    <div class="header-left" style="height: 88px; min-height: 88px; align-items: center;">
+      <a href="#top" class="logo">
+        <img src="assets/images/logo.png" alt="Mujeres con Propósito" style="height: 120px; width: auto;" />
+      </a>
+      <h1 style="margin: 0; line-height: 1.05;">Mujeres con Propósito</h1>
+    </div>
+
+    <nav>
+      <button class="hamburger" type="button" onclick="toggleMenu()" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul id="nav-menu">
+        <li><a href="#home">Inicio</a></li>
+        <li><a href="#about">Nosotras</a></li>
+        <li><a href="#" id="openJoinModalMenu">Unirse</a></li>
+        <li><a href="#events">Actividades</a></li>
+        <li><a href="#" id="openDonateFromMenu" class="menu-donate-btn">Donar</a></li>
+        <li><a href="#contact">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="home" class="hero">
+    <h2>Bienvenida a Mujeres con Propósito</h2>
+    <p>Un espacio donde la fe, la hermandad y el propósito se unen para transformar vidas.</p>
+    <button type="button" class="btn" id="openJoinModalHero">Únete a la Comunidad</button>
+  </section>
+
+  <div class="divider-glow"></div>
+
+<section id="invitees">
+    <div class="section-header-premium reveal">
+      <h2><span class="icon">✦</span> Destacadas <span class="icon">✦</span></h2>
+    </div>
+
+    <div class="invitees-wrapper">
+      <button class="invitees-arrow left" id="invLeft" type="button">‹</button>
+
+      <!-- FIX: eliminar card-grid -->
+      <div class="invitees-track" id="inviteesTrack"></div>
+
+      <button class="invitees-arrow right" id="invRight" type="button">›</button>
+    </div>
+</section>
+
+
+  <div class="divider-glow"></div>
+
+  <section class="scripture">
+    <div class="verse-block enhanced">
+      <p>“El Señor cumplirá en mí su propósito. Tu gran amor, Señor, perdura para siempre; ¡no abandones la obra de tus manos!”</p>
+      <div class="author">— Salmo 138:8</div>
+    </div>
+  </section>
+
+  <div class="divider-glow"></div>
+
+  <section id="about">
+    <div class="section-header-premium reveal">
+      <h2><span class="icon">✦</span> Quiénes Somos <span class="icon">✦</span></h2>
+      <p class="subtitle">Nuestra misión, visión y propósito</p>
+    </div>
+    <p>Somos una comunidad de mujeres cristianas dedicadas al crecimiento espiritual, la hermandad y el apoyo mutuo.</p>
+  </section>
+
+  <div class="divider-glow"></div>
+
+  <section class="ofrecemos-section">
+    <h2>✦ Lo Que Hacemos ✦</h2>
+
+    <div class="ofrecemos-grid">
+      <div class="ofrecemos-card">
+        <div class="icon">📖</div>
+        <h3>Devocionales</h3>
+        <p>Reflexiones semanales para fortalecer tu caminar con Dios.</p>
+      </div>
+
+      <div class="ofrecemos-card">
+        <div class="icon">🎉</div>
+        <h3>Eventos</h3>
+        <p>Reuniones y actividades para crecer juntas en fe.</p>
+      </div>
+
+      <div class="ofrecemos-card">
+        <div class="icon">🙏</div>
+        <h3>Oración</h3>
+        <p>Comparte tus peticiones y permite que oremos contigo.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider-glow"></div>
+
+  <section id="join">
+    <div class="section-header-premium reveal">
+      <h2><span class="icon">✦</span> Únete a la Comunidad <span class="icon">✦</span></h2>
+      <p style="text-align:center; max-width:600px; margin:0 auto 20px;">
+        Completa tu información para ser parte de la comunidad de Mujeres con Propósito.
+      </p>
+      <div style="text-align:center; margin-top:10px;">
+        <button type="button" class="btn" id="openJoinModalSection">Quiero unirme</button>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider-glow"></div>
+
+<section id="events">
+    <div class="section-header-premium">
+      <h2><span class="icon">✦</span> Eventos <span class="icon">✦</span></h2>
+    </div>
+
+    <div class="events-wrapper">
+      <button class="events-arrow left" id="eventsLeft" type="button">‹</button>
+
+      <!-- FIX: eliminar card-grid -->
+      <div class="events-track" id="eventsGrid"></div>
+
+      <button class="events-arrow right" id="eventsRight" type="button">›</button>
+    </div>
+</section>
+
+
+  <div class="divider-glow"></div>
+
+  <section class="youtube-explore">
+    <h2>✨ Canal de YouTube ✨</h2>
+    <p class="youtube-subtitle">
+      Síguenos en YouTube para mensajes, reflexiones y contenido para tu crecimiento espiritual.
+    </p>
+
+    <div class="youtube-carousel">
+      <div class="youtube-item">
+        <div class="thumb-wrapper">
+          <img src="https://img.youtube.com/vi/LEe3mHoKObc/hqdefault.jpg" alt="Video 1" />
+          <div class="play-icon">▶</div>
+        </div>
+        <h4>De vuelta al Génesis</h4>
+        <p>Conferencia con Xiomery Mercedes</p>
+      </div>
+
+      <div class="youtube-item">
+        <div class="thumb-wrapper">
+          <img src="https://img.youtube.com/vi/43l_c5h5crs/hqdefault.jpg" alt="Video 2" />
+          <div class="play-icon">▶</div>
+        </div>
+        <h4>Marexy Pacheco</h4>
+        <p>Reflexión y enseñanza</p>
+      </div>
+
+      <div class="youtube-item">
+        <div class="thumb-wrapper">
+          <img src="https://img.youtube.com/vi/cLrY0E1u0j0/hqdefault.jpg" alt="Video 3" />
+          <div class="play-icon">▶</div>
+        </div>
+        <h4>Mujeres que Emprenden</h4>
+        <p>Conferencia con invitadas especiales</p>
+      </div>
+    </div>
+
+    <a href="https://www.youtube.com/@MujeresconProposito930" class="youtube-more" target="_blank" rel="noopener noreferrer">Ver más videos</a>
+  </section>
+
+  <div class="divider-glow"></div>
+
+  <section id="donate">
+    <div class="section-header-premium">
+      <h2><span class="icon">✦</span> Apoya Nuestra Misión <span class="icon">✦</span></h2>
+    </div>
+
+    <div class="donate-container">
+      <p class="donate-text">
+        Tu generosidad nos permite seguir compartiendo esperanza, fe y propósito con mujeres alrededor del mundo.
+        Cada aporte, grande o pequeño, es una semilla que Dios multiplica.
+      </p>
+
+      <blockquote class="donate-verse">
+        “Cada uno dé como propuso en su corazón; no con tristeza, ni por obligación, porque Dios ama al dador alegre.”
+        <br />— 2 Corintios 9:7
+      </blockquote>
+
+      <button type="button" class="donate-btn-new" id="openDonateModal">Quiero Donar</button>
+    </div>
+  </section>
+
+  <div class="divider-glow"></div>
+
+  <section id="gallery">
+    <div class="section-header-premium">
+      <h2><span class="icon">✦</span> Galería <span class="icon">✦</span></h2>
+    </div>
+
+    <div class="gallery-tabs">
+      <button class="tab active" data-target="usa" type="button">Estados Unidos</button>
+      <button class="tab" data-target="rd" type="button">República Dominicana</button>
+      <button class="tab" data-target="eu" type="button">Europa</button>
+    </div>
+
+    <div class="gallery-content">
+      <div class="gallery-row active" id="usa"></div>
+      <div class="gallery-row" id="rd"></div>
+      <div class="gallery-row" id="eu"></div>
+    </div>
+
+    <div class="gallery-nav">
+      <button type="button" class="gallery-arrow" id="galleryPrev">&#10094;</button>
+      <button type="button" class="gallery-arrow" id="galleryNext">&#10095;</button>
+    </div>
+  </section>
+
+  <!-- LIGHTBOX GALERÍA -->
+  <div id="lightbox">
+    <span id="prev" class="arrow">&#10094;</span>
+    <img id="lightbox-img" alt="" />
+    <span id="next" class="arrow">&#10095;</span>
+    <div id="lightbox-counter"></div>
+  </div>
+
+  <div class="divider-glow"></div>
+
+  <section id="soundcloud">
+  <div class="soundcloud-mini">
+    <div class="sc-mini-head">
+      <div>
+        <h2>Porción - Escucha nuestros audios</h2>
+        <p>Mensajes y reflexiones de Mujeres con Propósito.</p>
+      </div>
+
+      <a
+        class="sc-mini-link"
+        href="https://soundcloud.com/mujeresconproposito930/sets/mujeres-con-proposito-porcion"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Ver playlist
+      </a>
+    </div>
+
+    <div class="sc-mini-player">
+      <div class="sc-mini-now">
+        <span class="sc-mini-badge">Ahora sonando</span>
+        <h3 id="scCurrentTitle">Cargando audio...</h3>
+      </div>
+
+      <div class="sc-mini-controls">
+        <button type="button" id="scPrevBtn" class="sc-mini-btn">⏮</button>
+        <button type="button" id="scPlayBtn" class="sc-mini-btn sc-mini-btn-play">▶</button>
+        <button type="button" id="scNextBtn" class="sc-mini-btn">⏭</button>
+      </div>
+    </div>
+
+    <div id="scTrackList" class="sc-mini-list">
+      <div class="sc-track-placeholder">Cargando audios...</div>
+    </div>
+
+    <div class="sc-hidden-embed">
+      <iframe
+        id="soundcloudWidget"
+        width="100%"
+        height="120"
+        scrolling="no"
+        frameborder="no"
+        allow="autoplay"
+        src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/mujeresconproposito930/sets/mujeres-con-proposito-porcion&color=%23e7a8a0&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=false">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+  <div class="divider-glow"></div>
+
+   <section id="contact">
+  <div class="section-header-premium">
+    <h2><span class="icon">✦</span> Contacto <span class="icon">✦</span></h2>
+
+  </div>
+
+  <div class="contact-layout">
+    <div class="contact-form-card">
+      <form id="contactForm">
+        <input type="text" name="nombre" id="cNombre" placeholder="Tu Nombre" required />
+        <input type="email" name="email" id="cEmail" placeholder="Correo Electrónico" required />
+        <textarea name="mensaje" id="cMensaje" placeholder="Tu mensaje" required></textarea>
+
+        <button type="submit" id="cSubmitBtn">Enviar</button>
+        <div id="contactMsg" class="small"></div>
+      </form>
+    </div>
+
+    <aside class="calendar-card" id="calendarCard">
+      <div class="calendar-head">
+        <h3>Calendario de hoy</h3>
+        <p id="calendarTodayText"></p>
+      </div>
+
+      <div class="calendar-block">
+        <h4>Actividades</h4>
+        <div id="todayActivitiesList" class="calendar-list"></div>
+      </div>
+
+      <div class="calendar-block">
+        <h4>Próxima actividad</h4>
+        <div id="nextActivityList" class="calendar-list"></div>
+      </div>
+
+      <div class="calendar-block">
+        <h4>Cumpleaños de hoy</h4>
+        <div id="todayBirthdaysList" class="calendar-list"></div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+  <!-- LIGHTBOX INVITADAS -->
+  <div id="invitee-lightbox">
+    <div id="invitee-lightbox-content">
+      <span id="invitee-lightbox-close">&times;</span>
+      <img id="invitee-lightbox-img" src="" alt="" />
+      <h3 id="invitee-lightbox-name"></h3>
+      <p id="invitee-lightbox-title"></p>
+    </div>
+  </div>
+
+  <!-- MODAL DONACIÓN -->
+  <div id="donateModal" class="modal-overlay">
+    <div class="modal-content">
+      <span id="closeDonateModal" class="close-btn">×</span>
+
+      <h2>Elige tu forma de donar</h2>
+      <p class="donate-subtitle">Selecciona un monto para continuar</p>
+
+      <div class="donate-amounts">
+        <button class="amount" type="button" data-amount="10">$10</button>
+        <button class="amount" type="button" data-amount="20">$20</button>
+        <button class="amount" type="button" data-amount="50">$50</button>
+        <button class="amount" type="button" data-amount="100">$100</button>
+      </div>
+
+      <div class="donate-custom">
+        <label>O escribe tu propio monto:</label>
+        <input type="number" id="customDonateAmount" placeholder="$0.00" min="1" step="0.01" />
+      </div>
+
+      <div class="donate-methods">
+        <div class="method paypal" style="padding:0; background:none; box-shadow:none;">
+          <div id="donate-button-container">
+            <div id="donate-button-helper">
+              Escanea el código QR o toca el botón para donar con PayPal.
+            </div>
+
+            <div id="donate-button"></div>
+
+            <div class="paypal-qr-card">
+              <img
+                class="paypal-qr-image"
+                src="assets/images/paypal-qr.png"
+                alt="Código QR de PayPal"
+              />
+              <p class="paypal-qr-caption">Escanea este QR desde la app de PayPal.</p>
+            </div>
+
+            <script src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js" charset="UTF-8"></script>
+            <script>
+              (function () {
+                const PAYPAL_HOSTED_BUTTON_ID = 'ZVN8VQZ622B7W';
+                const donateButtonTarget = '#donate-button';
+                const amountButtons = document.querySelectorAll('.donate-amounts .amount');
+                const customAmountInput = document.getElementById('customDonateAmount');
+                const donateButtonHelper = document.getElementById('donate-button-helper');
+
+                function getSelectedAmount() {
+                  const selectedBtn = document.querySelector('.donate-amounts .amount.selected');
+                  if (selectedBtn && selectedBtn.dataset.amount) {
+                    return selectedBtn.dataset.amount;
+                  }
+
+                  const customValue = Number.parseFloat(customAmountInput?.value || '');
+                  if (Number.isFinite(customValue) && customValue > 0) {
+                    return customValue.toFixed(2);
+                  }
+
+                  return '';
+                }
+
+                function renderPayPalDonateButton() {
+                  const container = document.querySelector(donateButtonTarget);
+                  if (!container || typeof PayPal === 'undefined' || !PayPal.Donation?.Button) return;
+
+                  const amount = getSelectedAmount();
+                  container.innerHTML = '';
+
+                  const config = {
+                    env: 'production',
+                    hosted_button_id: PAYPAL_HOSTED_BUTTON_ID,
+                    currency_code: 'USD',
+                    image: {
+                      src: 'https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif',
+                      alt: 'Donate with PayPal button',
+                      title: 'PayPal - The safer, easier way to pay online!'
+                    }
+                  };
+
+                  if (amount) {
+                    config.amount = amount;
+                    if (donateButtonHelper) {
+                      donateButtonHelper.textContent = `Vas a donar $${amount} USD por PayPal.`;
+                    }
+                  } else if (donateButtonHelper) {
+                    donateButtonHelper.textContent = 'Escanea el código QR o toca el botón para donar con PayPal.';
+                  }
+
+                  PayPal.Donation.Button(config).render(donateButtonTarget);
+                }
+
+                amountButtons.forEach((button) => {
+                  button.addEventListener('click', function () {
+                    amountButtons.forEach((btn) => btn.classList.remove('selected'));
+                    this.classList.add('selected');
+                    if (customAmountInput) customAmountInput.value = '';
+                    renderPayPalDonateButton();
+                  });
+                });
+
+                customAmountInput?.addEventListener('input', function () {
+                  amountButtons.forEach((btn) => btn.classList.remove('selected'));
+                  renderPayPalDonateButton();
+                });
+
+                renderPayPalDonateButton();
+              })();
+            </script>
+          </div>
+        </div>
+
+        <!-- <button class="method cashapp" type="button">CashApp</button> -->
+        <!-- <button class="method zelle" type="button">Zelle</button> -->
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL UNIRSE -->
+  <div id="joinModal" class="join-overlay">
+    <div class="modal-content join-modal-content">
+      <span class="close-modal" id="closeJoinModal">&times;</span>
+
+      <h3>Únete a la Comunidad</h3>
+      <h4 class="join-subtitle">Bienvenida a Mujeres con Propósito</h4>
+
+      <form
+        id="joinForm"
+        class="join-form"
+        action="https://script.google.com/macros/s/AKfycbyFv3qJPvvIW7kVK7k6AYsXYVFO2rPAeQ1IIqpkQ0IDhUFxSgBciBWgws3wZnV10zfoGw/exec"
+        method="POST"
+      >
+        <label>Nombre</label>
+        <input type="text" id="nombre" name="nombre" required />
+
+        <label>Apellido</label>
+        <input type="text" id="apellido" name="apellido" required />
+
+        <label>Email</label>
+        <input type="email" id="email" name="email" required />
+
+        <label>Teléfono</label>
+        <input type="tel" id="telefono" name="telefono" required />
+
+        <label>Fecha de Nacimiento</label>
+        <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" required />
+
+        <label>Estatus Matrimonial</label>
+        <select id="estatus_matrimonial" name="estatus_matrimonial" required>
+          <option value="">Seleccione una opción</option>
+          <option>Casada</option>
+          <option>Soltera</option>
+          <option>Divorciada</option>
+          <option>Viuda</option>
+        </select>
+
+        <label>País de Nacimiento</label>
+        <select name="pais_nacimiento" id="pais_nacimiento" required>
+          <option value="">Seleccione un país</option>
+        </select>
+
+        <label>País de Residencia</label>
+        <select name="pais_residencia" id="pais_residencia" required>
+          <option value="">Seleccione un país</option>
+        </select>
+
+        <label>¿Eres cristiana?</label>
+        <select id="cristiana" name="cristiana" required>
+          <option value="">Seleccione una opción</option>
+          <option>Sí</option>
+          <option>Todavía</option>
+        </select>
+
+        <label>Comunidad a la que quiere pertenecer</label>
+        <select id="comunidad" name="comunidad" required>
+          <option value="">Seleccione una comunidad</option>
+          <option>Europa</option>
+          <option>Estados Unidos</option>
+          <option>República Dominicana</option>
+        </select>
+
+        <div id="joinMessage" class="form-message" style="display:none;"></div>
+        <button type="submit" class="btn join-submit-btn">Enviar</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="social-follow">
+    <a href="https://instagram.com/mujeresconproposito930" target="_blank" rel="noopener noreferrer" class="social-icon instagram">
+      <i class="fab fa-instagram"></i>
+    </a>
+
+    <a href="https://facebook.com/mujeresconproposito930" target="_blank" rel="noopener noreferrer" class="social-icon facebook">
+      <i class="fab fa-facebook-f"></i>
+    </a>
+  </div>
+
+  <footer>
+    © Mujeres con Propósito — Todos los derechos reservados
+  </footer>
+
+  <a href="https://wa.me/1234567890" class="whatsapp-float" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 32 32" width="28" height="28" fill="white">
+      <path d="M16.001 3.2c-7.064 0-12.8 5.736-12.8 12.8 0 2.256.592 4.448 1.712 6.4l-1.824 6.672 6.848-1.792c1.856.992 3.936 1.52 6.064 1.52h.001c7.064 0 12.8-5.736 12.8-12.8s-5.736-12.8-12.8-12.8zm0 23.2h-.001c-1.888 0-3.728-.496-5.344-1.44l-.384-.224-4.064 1.056 1.088-3.984-.256-.416c-1.04-1.68-1.6-3.6-1.6-5.584 0-5.84 4.76-10.6 10.6-10.6s10.6 4.76 10.6 10.6-4.76 10.6-10.6 10.6zm5.792-7.92c-.32-.16-1.888-.928-2.176-1.04-.288-.112-.496-.16-.704.16-.208.32-.8 1.04-.992 1.248-.192.208-.368.224-.688.08-.32-.16-1.344-.496-2.56-1.584-.944-.84-1.584-1.872-1.776-2.192-.192-.32-.02-.496.144-.656.144-.144.32-.368.48-.56.16-.192.208-.32.32-.528.112-.208.064-.384-.032-.544-.096-.16-.704-1.696-.96-2.32-.256-.624-.512-.528-.704-.528-.192 0-.384-.016-.592-.016-.208 0-.544.08-.832.384-.288.304-1.088 1.056-1.088 2.576s1.12 2.992 1.28 3.2c.16.208 2.208 3.36 5.344 4.704.752.32 1.344.512 1.792.656.752.24 1.44.208 1.984.128.608-.096 1.888-.768 2.16-1.504.272-.736.272-1.376.192-1.504-.08-.128-.288-.208-.608-.368z"/>
+    </svg>
+  </a>
+  <script src="https://w.soundcloud.com/player/api.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
+
+
